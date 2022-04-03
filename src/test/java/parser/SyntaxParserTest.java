@@ -22,4 +22,14 @@ class SyntaxParserTest {
     void testSampleInput() {
         assertEquals(26397, SyntaxParser.parseAndCalculatePoints(TestData.SAMPLE_INPUT));
     }
+
+    @Test
+    void testEmptyStringShouldReturn0() {
+        assertEquals(0, SyntaxParser.parseAndCalculatePoints(""));
+    }
+
+    @Test
+    void testStringWithNoCharactersShouldReturn0() {
+        assertEquals(0, SyntaxParser.parseAndCalculatePoints("invalid"));
+    }
 }
