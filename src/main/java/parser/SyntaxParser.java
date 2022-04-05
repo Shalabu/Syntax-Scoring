@@ -21,12 +21,12 @@ public final class SyntaxParser {
                 .lines()
                 .filter(Predicate.not(String::isEmpty))
                 .map(String::toCharArray)
-                .map(SyntaxParser::findCorrupted)
+                .map(SyntaxParser::findCorruptedAndGetPoints)
                 .mapToInt(Integer::intValue)
                 .sum();
     }
 
-    private static Integer findCorrupted(char[] characters) {
+    private static Integer findCorruptedAndGetPoints(char[] characters) {
         chunksAnalyzer.clear();
         chunksAnalyzer.add(characters[0]);
         for (int i = 1; i < characters.length; i++) {
